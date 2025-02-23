@@ -49,7 +49,7 @@ function get_county_list(state=nothing)::Vector{Vector{AbstractString}}
         return county_list
     elseif !isnothing(tryparse(Int, state))  # then its the fips
         return unique(filter(l -> l[2] == state, county_list))
-    else   # then its the abbreviation state name
+    else   # then its the abbreviation state name 
         return unique(filter(l -> l[1] == state, county_list))
     end
 
@@ -75,12 +75,27 @@ end
 
 
 function find_county(identifier::String, state_fips::String)::Union{Vector{String}, Nothing}
+
     counties = get_county_list(state_fips)
 
-    # Try to match based on any identifier in the county vector
-    matched_county = findfirst(county ->
-        any(uppercase(id) == uppercase(identifier) for id in county),
+    COUNTY_SUFFIXES = ["COUNTY", "MUNICIPIO", "BOROUGH", "PARISH", "MUNICIPALITY", "CENSUS AREA"]
+    clean_county_name(name::String) = replace(uppercase(strip(name)), 
+        Regex("\\s+(" * join(COUNTY_SUFFIXES, "|") * ")\$") => "")
+    clean_identifier = clean_county_name(uppercase(identifier))
+
+    # Try to match based on any identifier in the county vector only on fips and name to avoid false positive
+    matched_county = findfirst(
+        county -> any(clean_county_name(id) == clean_identifier for id in county[[3,4]]),
         counties)
 
     return isnothing(matched_county) ? nothing : counties[matched_county]
 end
+
+
+
+
+
+
+
+
+

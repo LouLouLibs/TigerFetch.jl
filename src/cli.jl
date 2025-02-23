@@ -8,9 +8,15 @@ const GEOGRAPHY_TYPES = Dict(
 )
 
 """
-Download TIGER/Line shapefiles.
+  tigerfetch(type, year)
 
-# Arguments
+Download shapefiles for US geography from the Census Tiger ftp server.
+
+# Intro
+
+
+
+# Args
 
 - `type`: Geography type (state, county, cousub, tract)
 - `year`: Data year (default: 2024)
@@ -23,10 +29,9 @@ Download TIGER/Line shapefiles.
 - `--force`: Override existing files
 
 # Examples
-tigerfetch state 2024
-tigerfetch cousub 2024 --state CA
-tigerfetch tract 2024 --state "New York"
-
+tigerfetch state
+tigerfetch cousub --state IL
+tigerfetch areawater --state "Minnesota" # 10,000 lakes
 """
 @main function tigerfetch(
     type::String, year::Int=2024;
