@@ -1,0 +1,6 @@
+[fips_state_county_list]
+git-tree-sha1 = "26354f6cda92c1671ba7569ca2273e3600b1c717"
+
+    [[fips_state_county_list.download]]
+    sha256 = "f00e895f9358863c07e9c6c3b9eedf199cc740aab0583ce25de39e9d7159b565"
+    url = "https://github.com/eloualiche/TigerFetch.jl/releases/download/0.1.1/fips_state_county_list.tar.gz"

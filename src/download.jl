@@ -109,8 +109,6 @@ function download_shapefile(
         state_fips = state_info[2]
         state_name = state_info[3]
 
-        # @infiltrate
-
         # Get counties for this state
         counties = get_county_list(state)
 

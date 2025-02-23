@@ -2,6 +2,8 @@
 using TigerFetch
 using Test
 using Pkg.Artifacts
+
+using SHA
 # using LazyArtifacts
 
 
@@ -23,3 +25,13 @@ printstyled("Running tests:\n", color=:blue, bold=true)
     end
 end
 # --------------------------------------------------------------------------------------------------
+
+# test random stuff
+using TigerFetch
+# National
+# tigerfetch("state", 2024, output="./tmp") # works
+# tigerfetch("county", 2024, output="./tmp") # works
+# state
+# tigerfetch("cousub", 2024, state="AL", county="11", output="./tmp") # works
+# county
+# tigerfetch("areawater", 2024, state="AL", county="011", output="./tmp") # works

@@ -15,4 +15,3 @@ You can use it
 ~/.julia/bin/tigerfetch areawater --state "Minnesota" --county "Hennepin" 
 ```
 
-
