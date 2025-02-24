@@ -1,11 +1,24 @@
 
+# --------------------------------------------------------------------------------------------------
+macro conditional_log(verbose, level, message, params...)
+    return quote
+        if $(esc(verbose))
+            @info $(esc(message)) $(map(esc, params)...)
+        else
+            @debug $(esc(message)) $(map(esc, params)...)
+        end
+    end
+end
+# --------------------------------------------------------------------------------------------------
+
 
 # --------------------------------------------------------------------------------------------------
 # National scope (States, Counties nationally)
 function download_shapefile(
     geo::T;
     output_dir::String=pwd(),
-    force::Bool=false) where {T <: NationalGeography}
+    force::Bool=false,
+    verbose::Bool=false) where {T <: NationalGeography}
 
     geo_type = typeof(geo)
     filename = "tl_$(geo.year)_us_$(lowercase(tiger_name(geo_type))).zip"
@@ -14,12 +27,12 @@ function download_shapefile(
     output_path = joinpath(output_dir, filename)
 
     if isfile(output_path) && !force
-        @info "File exists" path=output_path
+        @conditional_log verbose "File exists" path=output_path
         return output_path
     end
 
     try
-        @info "Downloading $(description(geo_type))" url=url
+        @conditional_log verbose "Downloading $(description(geo_type))" url=url
         mkpath(output_dir)
         Downloads.download(url, output_path)
         return output_path
@@ -37,7 +50,8 @@ function download_shapefile(
     geo::T;
     state::Union{String, Integer, Nothing}=nothing,
     output_dir::String=pwd(),
-    force::Bool=false) where T<:StateGeography
+    force::Bool=false,
+    verbose::Bool=false) where T<:StateGeography
 
     # Get states to process
     if !isnothing(state)
@@ -69,12 +83,12 @@ function download_shapefile(
             output_path = joinpath(output_dir, filename)
 
             if isfile(output_path) && !force
-                @info "File exists" state=state_name path=output_path
+                @conditional_log verbose "File exists" state=state_name path=output_path
                 continue
             end
 
             try
-                @info "Downloading" state=state_name url=url
+                @conditional_log verbose "Downloading" state=state_name url=url
                 Downloads.download(url, output_path)
             catch e
                 if e isa InterruptException
@@ -87,7 +101,7 @@ function download_shapefile(
         end
     catch e
         if e isa InterruptException
-            @info "Download process interrupted by user"
+            @warn "Download process interrupted by user"
             # Optional: Clean up partially downloaded file
             try
                 isfile(output_path) && rm(output_path)
@@ -110,7 +124,8 @@ function download_shapefile(
     state::Union{String, Integer, Nothing}=nothing,
     county::Union{String, Integer, Nothing}=nothing,
     output_dir::String=pwd(),
-    force::Bool=false) where {T <: CountyGeography}
+    force::Bool=false,
+    verbose::Bool=false) where {T <: CountyGeography}
 
 
     # Get states to process
@@ -153,12 +168,12 @@ function download_shapefile(
             output_path = joinpath(output_dir, filename)
 
             if isfile(output_path) && !force
-                @info "File exists" state=state_name county=county_name path=output_path
+                @conditional_log verbose "File exists" state=state_name county=county_name path=output_path
                 continue
             end
 
             try
-                @info "Downloading" state=state_name county=county_name url=url
+                @conditional_log verbose "Downloading" state=state_name county=county_name url=url
                 mkpath(output_dir)
                 Downloads.download(url, output_path)
             catch e
@@ -174,3 +189,5 @@ function download_shapefile(
     end
 end
 # --------------------------------------------------------------------------------------------------
+
+
