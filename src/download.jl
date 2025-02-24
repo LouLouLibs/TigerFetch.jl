@@ -133,7 +133,7 @@ function download_shapefile(
         state_name = state_info[3]
 
         # Get counties for this state
-        counties = get_county_list(state)
+        counties = get_county_list(state_fips)
 
         # Filter for specific county if provided
         if !isnothing(county)

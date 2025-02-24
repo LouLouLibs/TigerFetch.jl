@@ -34,7 +34,7 @@ tigerfetch areawater --state "Minnesota" # 10,000 lakes
     output::String=pwd(),
     force::Bool=false)
 
-    tigerdownload(type, year, state=state, county=county, output=output, force=force)
+    tigerdownload(type, year; state=state, county=county, output=output, force=force)
 
 end
 # -------------------------------------------------------------------------------------------------

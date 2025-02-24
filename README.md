@@ -38,8 +38,8 @@ You can use it
 ~/.julia/bin/tigerfetch --help
 ~/.julia/bin/tigerfetch state --output tmp
 ~/.julia/bin/tigerfetch cousub --state IL --output tmp 
-~/.julia/bin/tigerfetch areawater --state "Minnesota" --output tmp # does not work # 10,000 lakes
-~/.julia/bin/tigerfetch areawater --state "Minnesota" --county "Hennepin" --output tmp # works
+~/.julia/bin/tigerfetch areawater --state "Minnesota" --output tmp # 10,000 lakes
+~/.julia/bin/tigerfetch areawater --state "MN" --county "Hennepin" --output tmp 
 ```
 
 
