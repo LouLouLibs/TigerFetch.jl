@@ -49,33 +49,56 @@ function download_shapefile(
     else
         @warn "No state specified - downloading all states"
         states_to_process = get_state_list()
+        
+        # There are some exceptions because not everything is available all the time!
+        (geo isa CountySubdivision) ? filter!(s -> s[2] != "74", states_to_process) : nothing
+
     end
 
     # Use the type of geo to get tiger_name
     geo_type = typeof(geo)
     base_url = "https://www2.census.gov/geo/tiger/TIGER$(geo.year)/$(tiger_name(geo_type))/"
 
-    # Process each state
-    for state_info in states_to_process
-        fips = state_info[2]
-        state_name = state_info[3]
-        filename = "tl_$(geo.year)_$(fips)_$(lowercase(tiger_name(geo_type))).zip"
-        url = base_url * filename
-        output_path = joinpath(output_dir, filename)
+    try
+        # Process each state with total interrupt by user ...
+        for state_info in states_to_process
+            fips = state_info[2]
+            state_name = state_info[3]
+            filename = "tl_$(geo.year)_$(fips)_$(lowercase(tiger_name(T))).zip"
+            url = base_url * filename
+            output_path = joinpath(output_dir, filename)
 
-        if isfile(output_path) && !force
-            @info "File exists" state=state_name path=output_path
-            continue
-        end
+            if isfile(output_path) && !force
+                @info "File exists" state=state_name path=output_path
+                continue
+            end
 
-        try
-            @info "Downloading" state=state_name url=url
-            Downloads.download(url, output_path)
-        catch e
-            @error "Download failed" state=state_name exception=e
-            continue
+            try
+                @info "Downloading" state=state_name url=url
+                Downloads.download(url, output_path)
+            catch e
+                if e isa InterruptException
+                    # Re-throw interrupt to be caught by outer try block
+                    rethrow(e)
+                end
+                @error "Download failed" state=state_name exception=e
+                continue
+            end
         end
+    catch e
+        if e isa InterruptException
+            @info "Download process interrupted by user"
+            # Optional: Clean up partially downloaded file
+            try
+                isfile(output_path) && rm(output_path)
+            catch
+                # Ignore cleanup errors
+            end
+            rethrow(e)  # This will exit the function
+        end
+        rethrow(e)  # Re-throw any other unexpected errors
     end
+
 end
 # --------------------------------------------------------------------------------------------------
 

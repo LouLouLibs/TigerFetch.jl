@@ -3,9 +3,18 @@
 const GEOGRAPHY_TYPES = Dict(
     "state" => State,
     "county" => County,
+    "zipcode" => ZipCode,
+    "urbanarea" => UrbanArea,
+    "primaryroads" => PrimaryRoads,
+
     "cousub" => CountySubdivision,
     "tract" => Tract,
+    "primarysecondaryroads" => PrimarySecondaryRoads,
+
     "areawater" => AreaWater,
+    "linearwater" => LinearWater,
+    "road" => Roads,
+
 )
 
 # julia function

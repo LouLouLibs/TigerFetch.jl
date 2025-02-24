@@ -1,14 +1,15 @@
 # --------------------------------------------------------------------------------------------------
 using TigerFetch
 using Test
-using Pkg.Artifacts
 
+using Pkg.Artifacts
 using SHA
-# using LazyArtifacts
+
 
 
 const testsuite = [
     "assets",
+    "downloads",
 ]
 
 # --------------------------------------------------------------------------------------------------

@@ -6,8 +6,8 @@
 Install the command line tool (you need a julia installation for this)
 ```bash
 mkdir -p /.local/share/julia # or some other directory 
-git clone git@github.com:eloualiche/TigerFetch.jl.git ~/.local/share/julia
-julia --project deps/build.jl install
+git clone git@github.com:eloualiche/TigerFetch.jl.git  ~/.local/share/julia
+cd ~/.local/share/julia  && julia --project deps/build.jl install
 ```
 
 The binary will available at `~/.julia/bin/tigerfetch` but also depends on the downloaded packages.
@@ -42,3 +42,7 @@ You can use it
 ~/.julia/bin/tigerfetch areawater --state "Minnesota" --county "Hennepin" --output tmp # works
 ```
 
+
+#### Julia package
+
+Look at the test suite (specifically `UnitTests/downloads.jl`) for now
