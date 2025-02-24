@@ -46,3 +46,12 @@ You can use it
 #### Julia package
 
 Look at the test suite (specifically `UnitTests/downloads.jl`) for now
+
+
+
+
+[![CI](https://github.com/eloualiche/TigerFetch.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/eloualiche/TigerFetch.jl/actions/workflows/CI.yml)
+[![Lifecycle:Experimental](https://img.shields.io/badge/Lifecycle-Experimental-339999)](https://github.com/eloualiche/Prototypes.jl/actions/workflows/CI.yml)
+[![codecov](https://codecov.io/gh/eloualiche/TigerFetch.jl/graph/badge.svg?token=OZRTOQU9H6)](https://codecov.io/gh/eloualiche/TigerFetch.jl)
+
+
