@@ -1,5 +1,12 @@
 # TigerFetch
 
+This package downloads TIGER/Line shapefiles from the US Census Bureau FTP server.
+
+
+This was mostly written for personal use and to learn about julia's capabilities to generate cli tools.
+Thus the package is fairly lean and does not convert shapefiles into dataframes or GeoJSON.
+For serious use, you'd probably be better off using [tigris](https://github.com/walkerke/tigris)
+
 ## Installation
 
 #### Command line tool

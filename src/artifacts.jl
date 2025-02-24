@@ -9,31 +9,31 @@ Run this script once to update Artifacts.toml.
 Bind the artifact from a GitHub-hosted tarball.
 Run this script once to update Artifacts.toml.
 """
-function bind_github_artifact()
+# function bind_github_artifact()
 
-artifact_url = "https://github.com/eloualiche/TigerFetch.jl/releases/download/0.1.1/fips_state_county_list.tar.gz"
+# artifact_url = "https://github.com/eloualiche/TigerFetch.jl/releases/download/0.1.1/fips_state_county_list.tar.gz"
 
 
-# sha256
-artifact_hash_256 = "f00e895f9358863c07e9c6c3b9eedf199cc740aab0583ce25de39e9d7159b565"
+# # sha256
+# artifact_hash_256 = "f00e895f9358863c07e9c6c3b9eedf199cc740aab0583ce25de39e9d7159b565"
 
-# The SHA1 hash (obtained from sha256sum)
-# using SHA
-# artifact_path = "assets/fips_state_county_list.tar.gz"
-# artifact_hash = bytes2hex(open(sha1, artifact_path))
-artifact_hash = "d9f2ce485acf54390052e796cb4ccf8c01e70bcb"
-sha1_hash = Base.SHA1(artifact_hash)
+# # The SHA1 hash (obtained from sha256sum)
+# # using SHA
+# # artifact_path = "assets/fips_state_county_list.tar.gz"
+# # artifact_hash = bytes2hex(open(sha1, artifact_path))
+# artifact_hash = "d9f2ce485acf54390052e796cb4ccf8c01e70bcb"
+# sha1_hash = Base.SHA1(artifact_hash)
 
-# Bind the artifact with its SHA1 hash
-bind_artifact!(
-    "Artifacts.toml",      # Path to Artifacts.toml
-    "fips_state_county_list",         # Name of the artifact
-    sha1_hash;             # SHA1 hash (as a Base.SHA1 object)
-    download_info=[(artifact_url, artifact_hash_256)],  # URL for downloading the artifact and its SHA256 hash
-    force=true             # Overwrite if exists
-)
+# # Bind the artifact with its SHA1 hash
+# bind_artifact!(
+#     "Artifacts.toml",      # Path to Artifacts.toml
+#     "fips_state_county_list",         # Name of the artifact
+#     sha1_hash;             # SHA1 hash (as a Base.SHA1 object)
+#     download_info=[(artifact_url, artifact_hash_256)],  # URL for downloading the artifact and its SHA256 hash
+#     force=true             # Overwrite if exists
+# )
 
-end
+# end
 
 
 """

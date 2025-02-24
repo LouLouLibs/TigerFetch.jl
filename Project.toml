@@ -1,7 +1,7 @@
 name = "TigerFetch"
 uuid = "59408d0a-a903-460e-b817-a5586a16527e"
 authors = ["Erik Loualiche"]
-version = "0.1.1"
+version = "0.1.2"
 
 [deps]
 Comonicon = "863f3e99-da2a-4334-8734-de3dacbe5542"
