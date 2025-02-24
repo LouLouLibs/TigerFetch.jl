@@ -64,4 +64,9 @@ Look at the test suite (specifically `UnitTests/downloads.jl`) for now
 [![Lifecycle:Experimental](https://img.shields.io/badge/Lifecycle-Experimental-339999)](https://github.com/eloualiche/Prototypes.jl/actions/workflows/CI.yml)
 [![codecov](https://codecov.io/gh/eloualiche/TigerFetch.jl/graph/badge.svg?token=OZRTOQU9H6)](https://codecov.io/gh/eloualiche/TigerFetch.jl)
 
+[![][docs-latest-img]][docs-latest-url]
 
+
+
+[docs-latest-img]: https://img.shields.io/badge/docs-latest-blue.svg
+[docs-latest-url]: https://eloualiche.github.io/TigerFetch.jl/
