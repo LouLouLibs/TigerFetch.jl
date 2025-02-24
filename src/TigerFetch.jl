@@ -23,7 +23,8 @@ include("cli.jl")
 # Export types
 # export download_shapefile # this actually relies on internal types ... that we might not want to export
 # Export CLI function
-export tigerfetch # the julia function 
+export tigerdownload  # the julia function 
+# export tigerfetch     # the cli function
 # --------------------------------------------------------------------------------------------------
 
 
