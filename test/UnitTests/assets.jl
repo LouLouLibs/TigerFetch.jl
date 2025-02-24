@@ -3,9 +3,7 @@
     @testset "Artifact Configuration" begin
 
 
-        # artifact_toml = joinpath(@__DIR__, "..", "Artifacts.toml")
-        artifact_toml = joinpath("/Users/loulou/Dropbox/projects_code/julia_packages/TigerFetch", "Artifacts.toml")
-        # artifact_toml = joinpath(@__DIR__, ".", "Artifacts.toml")
+        artifact_toml = joinpath(@__DIR__, "..", "..", "Artifacts.toml")
         @test isfile(artifact_toml)
         @test_nowarn ensure_artifact_installed("fips_state_county_list", artifact_toml)
 
