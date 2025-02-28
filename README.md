@@ -2,11 +2,13 @@
 
 This package downloads TIGER/Line shapefiles from the US Census Bureau FTP server.
 
-
 This was written for personal use and to learn about julia's capabilities to generate cli tools.
 Thus the package is fairly lean and does not convert shapefiles into dataframes or GeoJSON.
 The package has only been tested for the 2024 files, but could be extended to accomodate other vintages.
 For serious use, you'd probably be better off using [tigris](https://github.com/walkerke/tigris)
+
+What the package does is provide a convenient interface to pull file from the Census. 
+You can always check what is directly available on the [ftp server.](https://www2.census.gov/geo/tiger)
 
 
 
@@ -55,7 +57,9 @@ You can use it
 
 #### Julia package
 
-Look at the test suite (specifically `UnitTests/downloads.jl`) for now
+Look at the [doc](https://eloualiche.github.io/TigerFetch.jl/dev/) or at the test suite (specifically `UnitTests/downloads.jl`).
+
+This [issue](#4) tracks which geographies have been implemented thus far. 
 
 
 

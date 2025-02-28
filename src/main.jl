@@ -5,9 +5,15 @@ const GEOGRAPHY_TYPES = Dict(
     "zipcode" => ZipCode,
     "urbanarea" => UrbanArea,
     "primaryroads" => PrimaryRoads,
+    "cbsa" => CBSA,
+    "csa" => CSA,
+    "metrodivision" => METDIV,
+    "rails" => Rails,
 
     "cousub" => CountySubdivision,
     "tract" => Tract,
+    "place" => Place,
+    "consolidatedcity" => ConCity,
     "primarysecondaryroads" => PrimarySecondaryRoads,
 
     "areawater" => AreaWater,

@@ -37,10 +37,20 @@ struct PrimaryRoads <: NationalGeography
 end
 const PRIMARYROADS_META = (tiger_name = "PRIMARYROADS", description = "Primary Roads")
 
+struct Rails <: NationalGeography
+    year::Int
+end
+const RAILS_META = (tiger_name = "RAILS", description = "Rails")
+
 struct CBSA <: NationalGeography
     year::Int
 end
 const CBSA_META = (tiger_name = "CBSA", description = "Core Based Statistical Area")
+
+struct CSA <: NationalGeography
+    year::Int
+end
+const CSA_META = (tiger_name = "CSA", description = "Combined Statistical Area")
 
 struct METDIV <: NationalGeography
     year::Int
@@ -60,10 +70,27 @@ struct Tract <: StateGeography
 end
 const TRACT_META = (tiger_name = "TRACT", description = "Census Tract")
 
+struct Place <: StateGeography
+    year::Int
+end
+const PLACE_META = (tiger_name = "PLACE", description = "Place")
+
 struct PrimarySecondaryRoads <: StateGeography
     year::Int
 end
 const PSROADS_META = (tiger_name = "PRISECROADS", description = "Primary and Secondary Roads")
+
+struct ConCity <: StateGeography
+    year::Int
+end
+const CONCITY_META = (tiger_name = "CONCITY", description = "Consolidated City")
+
+struct UNSD <: StateGeography
+    year::Int
+end
+const UNSD_META = (tiger_name = "UNSD", description = "Unified School District")
+
+
 # --------------------------------------------------------------------------------------------------
 
 
@@ -93,11 +120,16 @@ tiger_name(::Type{County}) = COUNTY_META.tiger_name
 tiger_name(::Type{ZipCode}) = ZIP_META.tiger_name
 tiger_name(::Type{UrbanArea}) = URBANAREA_META.tiger_name
 tiger_name(::Type{PrimaryRoads}) = PRIMARYROADS_META.tiger_name
+tiger_name(::Type{Rails}) = RAILS_META.tiger_name
 tiger_name(::Type{CBSA}) = CBSA_META.tiger_name
+tiger_name(::Type{CSA}) = CSA_META.tiger_name
 tiger_name(::Type{METDIV}) = METDIV_META.tiger_name
 
 tiger_name(::Type{CountySubdivision}) = COUSUB_META.tiger_name
 tiger_name(::Type{Tract}) = TRACT_META.tiger_name
+tiger_name(::Type{Place}) = PLACE_META.tiger_name
+tiger_name(::Type{ConCity}) = CONCITY_META.tiger_name
+tiger_name(::Type{UNSD}) = UNSD_META.tiger_name
 tiger_name(::Type{PrimarySecondaryRoads}) = PSROADS_META.tiger_name
 
 tiger_name(::Type{AreaWater}) = AREAWATER_META.tiger_name
@@ -112,11 +144,16 @@ description(::Type{County}) = COUNTY_META.description
 description(::Type{ZipCode}) = ZIP_META.description
 description(::Type{UrbanArea}) = URBANAREA_META.description
 description(::Type{PrimaryRoads}) = PRIMARYROADS_META.description
+description(::Type{Rails}) = RAILS_META.description
 description(::Type{CBSA}) = CBSA_META.description
+description(::Type{CSA}) = CSA_META.description
 description(::Type{METDIV}) = METDIV_META.description
 
 description(::Type{CountySubdivision}) = COUSUB_META.description
 description(::Type{Tract}) = TRACT_META.description
+description(::Type{Place}) = PLACE_META.description
+description(::Type{ConCity}) = CONCITY_META.description
+description(::Type{UNSD}) = UNSD_META.description
 description(::Type{PrimarySecondaryRoads}) = PSROADS_META.description
 
 description(::Type{AreaWater}) = AREAWATER_META.description
