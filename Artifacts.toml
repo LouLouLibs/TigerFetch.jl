@@ -3,5 +3,4 @@ git-tree-sha1 = "26354f6cda92c1671ba7569ca2273e3600b1c717"
 
 [[fips_state_county_list.download]]
 sha256 = "8009d5f86e656b4c57938f941d0dcf8f20859f14ea42fc67a26e71258adeb7a6"
-url = "file:///Users/loulou/Desktop/incoming/julia/artifacts/fips_state_county_list.tar.gz"
-# url = "https://github.com/louloulibs/TigerFetch.jl/releases/download/0.2.0/fips_state_county_list.tar.gz"
+url = "https://github.com/LouLouLibs/TigerFetch.jl/releases/download/0.2.0/fips_state_county_list.tar.gz"
