@@ -14,13 +14,13 @@ using TigerFetch
 using Documenter
 using DocumenterVitepress
 
-# -- 
+# --
 makedocs(
     # format = Documenter.HTML(),
     format = MarkdownVitepress(
-        repo = "https://github.com/eloualiche/TigerFetch.jl",
+        repo = "https://github.com/louloulibs/TigerFetch.jl",
     ),
-    repo = Remotes.GitHub("eloualiche", "TigerFetch.jl"),
+    repo = Remotes.GitHub("louloulibs", "TigerFetch.jl"),
     sitename = "TigerFetch.jl",
     modules  = [TigerFetch],
     authors = "Erik Loualiche",
@@ -42,7 +42,7 @@ makedocs(
 
 # --
 deploydocs(;
-    repo = "github.com/eloualiche/TigerFetch.jl",
+    repo = "github.com/louloulibs/TigerFetch.jl",
     target = "build", # this is where Vitepress stores its output
     devbranch = "main",
     branch = "gh-pages",

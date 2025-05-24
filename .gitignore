@@ -2,7 +2,7 @@
 **/Manifest.toml
 .DS_Store
 tmp
-
+setup_readme.md
 **/sandbox.*
 
 assets

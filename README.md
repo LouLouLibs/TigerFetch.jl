@@ -14,11 +14,14 @@ You can always check what is directly available on the [ftp server.](https://www
 
 ## Installation
 
+You can either use the package through the command line (and stay away from julia) or you can use it from within julia.
+
+
 #### Command line tool
 Install the command line tool (you need a julia installation for this)
 ```bash
 mkdir -p /.local/share/julia # or some other directory 
-git clone git@github.com:eloualiche/TigerFetch.jl.git  ~/.local/share/julia
+git clone git@github.com:louloulibs/TigerFetch.jl.git  ~/.local/share/julia
 cd ~/.local/share/julia  && julia --project deps/build.jl install
 ```
 
@@ -31,7 +34,7 @@ TigerFetch.jl is not yet a registered package.
 You can install it from github via
 ```julia
 import Pkg
-Pkg.add(url="https://github.com/eloualiche/TigerFetch.jl")
+Pkg.add(url="https://github.com/louloulibs/TigerFetch.jl")
 ```
 
 Then install the cli tool with
@@ -57,20 +60,20 @@ You can use it
 
 #### Julia package
 
-Look at the [doc](https://eloualiche.github.io/TigerFetch.jl/dev/) or at the test suite (specifically `UnitTests/downloads.jl`).
+Look at the [doc](https://louloulibs.github.io/TigerFetch.jl/dev/) or at the test suite (specifically `UnitTests/downloads.jl`).
 
 This [issue](#4) tracks which geographies have been implemented thus far. 
 
 
 
 
-[![CI](https://github.com/eloualiche/TigerFetch.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/eloualiche/TigerFetch.jl/actions/workflows/CI.yml)
-[![Lifecycle:Experimental](https://img.shields.io/badge/Lifecycle-Experimental-339999)](https://github.com/eloualiche/Prototypes.jl/actions/workflows/CI.yml)
-[![codecov](https://codecov.io/gh/eloualiche/TigerFetch.jl/graph/badge.svg?token=OZRTOQU9H6)](https://codecov.io/gh/eloualiche/TigerFetch.jl)
+[![CI](https://github.com/louloulibs/TigerFetch.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/louloulibs/TigerFetch.jl/actions/workflows/CI.yml)
+[![Lifecycle:Experimental](https://img.shields.io/badge/Lifecycle-Experimental-339999)](https://github.com/louloulibs/Prototypes.jl/actions/workflows/CI.yml)
+[![codecov](https://codecov.io/gh/louloulibs/TigerFetch.jl/graph/badge.svg?token=OZRTOQU9H6)](https://codecov.io/gh/louloulibs/TigerFetch.jl)
 
 [![][docs-latest-img]][docs-latest-url]
 
 
 
 [docs-latest-img]: https://img.shields.io/badge/docs-latest-blue.svg
-[docs-latest-url]: https://eloualiche.github.io/TigerFetch.jl/
+[docs-latest-url]: https://louloulibs.github.io/TigerFetch.jl/
