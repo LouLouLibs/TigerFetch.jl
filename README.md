@@ -30,12 +30,20 @@ An easier way is to install the package directly from julia.
 
 #### Julia package
 
-TigerFetch.jl is not yet a registered package. 
-You can install it from github via
+
+`TigerFetch.jl` is a registered package. 
+You can install from the my julia registry [`loulouJL`](https://github.com/LouLouLibs/loulouJL) via the julia package manager:
 ```julia
-import Pkg
-Pkg.add(url="https://github.com/louloulibs/TigerFetch.jl")
+> using Pkg, LocalRegistry
+> pkg"registry add https://github.com/LouLouLibs/loulouJL.git"
+> Pkg.add("TigerFetch")
 ```
+
+If you don't want to add a new registry, you can install it directly from github:
+```julia
+> import Pkg; Pkg.add("https://github.com/louloulibs/TigerFetch.jl#main")
+```
+
 
 Then install the cli tool with
 ```julia
